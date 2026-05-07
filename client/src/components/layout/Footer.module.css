@@ -1,0 +1,97 @@
+/* Footer.module.css */
+
+.footer {
+  background: var(--color-dark);
+  padding: var(--space-2xl) 0 var(--space-md);
+  color: #D1D5DB;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Brand column */
+.brand { display: flex; flex-direction: column; gap: var(--space-sm); }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+}
+.brandDesc { font-size: 0.85rem; color: #9CA3AF; line-height: 1.6; }
+
+/* Subscribe */
+.subscribe {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: var(--space-xs);
+}
+.emailInput {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #fff;
+  outline: none;
+}
+.emailInput::placeholder { color: #6B7280; }
+.emailInput:focus { border-color: var(--color-primary-light); }
+.subscribeBtn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.subscribeBtn:hover { background: var(--color-primary-dark); }
+
+/* Link columns */
+.linkCol { display: flex; flex-direction: column; gap: var(--space-sm); }
+.colHeading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.linkList { display: flex; flex-direction: column; gap: 0.5rem; }
+.footerLink {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  transition: color 0.2s;
+}
+.footerLink:hover { color: #fff; }
+
+/* Bottom bar */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+}
+.copyright { font-size: 0.82rem; color: #6B7280; }
+.legalLinks { display: flex; gap: var(--space-md); }
+.legalLink { font-size: 0.82rem; color: #6B7280; transition: color 0.2s; }
+.legalLink:hover { color: #fff; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .bottomBar { flex-direction: column; gap: var(--space-sm); text-align: center; }
+}
