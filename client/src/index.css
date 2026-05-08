@@ -85,7 +85,7 @@ ul { list-style: none; }
   .container { padding: 0 var(--space-sm); }
 }
 
-.section { padding: var(--space-2xl) 0; }
+.section { padding: 0 0 4rem 0; }
 .text-purple { color: var(--color-primary); }
 .text-center { text-align: center; }
 

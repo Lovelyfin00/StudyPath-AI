@@ -17,7 +17,6 @@ const LandingPage = () => {
       <Hero />
       <HowItWorks />
       <Features />
-      <UseCases />
       <CTA />
     </main>
   );

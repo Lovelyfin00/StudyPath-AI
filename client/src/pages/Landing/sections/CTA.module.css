@@ -3,7 +3,7 @@
 .cta { background: var(--color-bg-soft); }
 
 .inner {
-  background: var(--color-dark);
+  background: var(--color-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-xl) var(--space-lg);
   display: grid;
@@ -19,8 +19,9 @@
   font-weight: 700;
   color: #fff;
   line-height: 1.3;
+  color: white;
 }
-.subtitle { font-size: 0.9rem; color: #9CA3AF; }
+.subtitle { font-size: 0.9rem; color: #fff; }
 
 .benefits { display: flex; flex-direction: column; gap: 0.6rem; }
 .benefit {
@@ -28,7 +29,7 @@
   align-items: center;
   gap: 0.6rem;
   font-size: 0.9rem;
-  color: #D1D5DB;
+  color: #fff;
   font-weight: 500;
 }
 .checkIcon {
@@ -45,7 +46,8 @@
 .action { display: flex; align-items: center; justify-content: flex-end; }
 .ctaBtn {
   background: var(--color-primary);
-  color: #fff;
+  color: #5B21B6;
+  background-color: #fff;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
@@ -56,7 +58,7 @@
   transition: all 0.2s;
   white-space: nowrap;
 }
-.ctaBtn:hover { background: var(--color-primary-dark); box-shadow: var(--shadow-purple); transform: translateY(-1px); }
+.ctaBtn:hover { background: var(--color-bg-soft); box-shadow: var(--shadow-purple); transform: translateY(-1px); }
 
 /* Tablet */
 @media (max-width: 900px) {

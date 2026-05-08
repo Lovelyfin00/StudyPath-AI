@@ -12,7 +12,7 @@ import styles from './Navbar.module.css';
 const NAV_LINKS = [
   { label: 'Features',     href: '#features'     },
   { label: 'How It Works', href: '#how-it-works'  },
-  { label: 'Use Cases',    href: '#use-cases'     },
+  { label: 'Use Cases',    href: '#'     },
   { label: 'Pricing',      href: '#pricing'       },
   { label: 'Resources',    href: '#resources'     },
 ];

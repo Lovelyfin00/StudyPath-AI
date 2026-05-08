@@ -1,8 +1,8 @@
 /* Hero.module.css */
 
 .hero {
-  padding-top: calc(var(--nav-height) + var(--space-lg));
-  background: linear-gradient(135deg, #faf8ff 0%, #f0ebff 50%, #fff 100%);
+  padding-top: calc(var(--nav-height) );
+  background: var(--color-bg-soft);
   overflow: hidden;
 }
 
@@ -84,7 +84,7 @@
 /* --- Trusted bar --- */
 .trustedBar {
   width: 100%;
-  background: transparent;
+  background: var(--color-bg-soft);
   padding: var(--space-sm) 0 var(--space-xl);
 }
 .trustedInner {
