@@ -1,0 +1,47 @@
+/* Button.module.css */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* --- Variants --- */
+.primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-purple);
+  transform: translateY(-1px);
+}
+
+.outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+.outline:hover {
+  background: var(--color-primary-faint);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+.ghost:hover {
+  color: var(--color-primary);
+}
+
+/* --- Sizes --- */
+.sm { font-size: 0.85rem; padding: 0.4rem 1rem; }
+.md { font-size: 0.95rem; padding: 0.65rem 1.4rem; }
+.lg { font-size: 1rem;    padding: 0.8rem 1.8rem; }

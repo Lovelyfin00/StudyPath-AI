@@ -1,0 +1,95 @@
+/* Navbar.module.css */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--nav-height);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Logo */
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logoImg { height: 40px; width: auto; object-fit: contain; }
+
+/* Desktop nav links */
+.navLinks { display: flex; align-items: center; gap: var(--space-md); }
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.navLink:hover { color: var(--color-primary); }
+
+/* Desktop action buttons */
+.navActions { display: flex; align-items: center; gap: var(--space-xs); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+}
+.bar {
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* Mobile menu */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+.mobileLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.mobileLink:last-of-type { border-bottom: none; }
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-sm);
+}
+
+/* --- Responsive --- */
+
+/* Tablet: hide some nav links, keep buttons */
+@media (max-width: 900px) {
+  .navLinks { gap: var(--space-sm); }
+  .navLink { font-size: 0.82rem; }
+}
+
+/* Mobile: show hamburger, hide nav + buttons */
+@media (max-width: 768px) {
+  .navLinks, .navActions { display: none; }
+  .hamburger { display: flex; }
+  .logoImg { height: 34px; }
+}
