@@ -1,9 +1,12 @@
 /* ============================================
    StudyPath AI — Global Styles
    Design tokens, resets, and base typography
-   ============================================ */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap'); */
+   Breakpoints used throughout:
+   - Mobile:  max-width 480px
+   - Tablet:  max-width 768px
+   - Desktop: 769px and above
+   ============================================ */
 
 /* --- Design Tokens --- */
 :root {
@@ -38,6 +41,26 @@
   --nav-height: 72px;
 }
 
+/* Tablet overrides */
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --nav-height: 64px;
+  }
+}
+
+/* Mobile overrides */
+@media (max-width: 480px) {
+  :root {
+    --space-md: 1.2rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2.5rem;
+    --space-2xl: 3rem;
+  }
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -57,6 +80,11 @@ ul { list-style: none; }
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
+
+@media (max-width: 480px) {
+  .container { padding: 0 var(--space-sm); }
+}
+
 .section { padding: var(--space-2xl) 0; }
 .text-purple { color: var(--color-primary); }
 .text-center { text-align: center; }

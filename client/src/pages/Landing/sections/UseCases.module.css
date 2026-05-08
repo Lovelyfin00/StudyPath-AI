@@ -5,13 +5,12 @@
 .header { margin-bottom: var(--space-xl); }
 .title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
   font-weight: 700;
   margin-bottom: var(--space-sm);
 }
 .subtitle { font-size: 1rem; color: var(--color-text-muted); max-width: 500px; margin: 0 auto; }
 
-/* Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -30,23 +29,12 @@
   text-align: center;
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 
 .cardIcon { font-size: 2rem; }
-
-.cardTitle {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-text);
-}
-
+.cardTitle { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--color-text); }
 .cardDesc { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; }
 
-/* Bottom banner */
 .banner {
   background: var(--color-primary);
   border-radius: var(--radius-lg);
@@ -57,14 +45,12 @@
   gap: var(--space-md);
   flex-wrap: wrap;
 }
-
 .bannerText {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #fff;
 }
-
 .bannerBtn {
   background: #fff;
   color: var(--color-primary);
@@ -78,15 +64,18 @@
   transition: all 0.2s;
   white-space: nowrap;
 }
-.bannerBtn:hover {
-  background: var(--color-primary-faint);
-  box-shadow: var(--shadow-md);
-}
+.bannerBtn:hover { background: var(--color-primary-faint); box-shadow: var(--shadow-md); }
 
+/* Tablet */
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .banner { padding: var(--space-md); }
 }
+
+/* Mobile */
 @media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
-  .banner { flex-direction: column; text-align: center; }
+  .banner { flex-direction: column; text-align: center; padding: var(--space-md); }
+  .bannerBtn { width: 100%; }
+  .card { padding: var(--space-md); }
 }
