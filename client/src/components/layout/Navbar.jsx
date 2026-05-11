@@ -1,20 +1,22 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../common/Button';
 import studypathLogo from '../../assets/studypathailogo.png';
 import styles from './Navbar.module.css';
 
 /**
  * Navbar — Top navigation bar
- * Uses the official StudyPath AI logo image
- * Includes nav links, login + CTA button, and mobile hamburger menu
+ *
+ * Uses React Router <Link> for page navigation (/features, etc.)
+ * Uses plain <a href="#section"> for same-page anchor scrolling
  */
 
 const NAV_LINKS = [
-  { label: 'Features',     href: '#features'     },
-  { label: 'How It Works', href: '#how-it-works'  },
-  { label: 'Use Cases',    href: '#'     },
-  { label: 'Pricing',      href: '#pricing'       },
-  { label: 'Resources',    href: '#resources'     },
+  { label: 'Features',     href: '/features',    isRoute: true  },
+  { label: 'How It Works', href: '#how-it-works', isRoute: false },
+  { label: 'Use Cases',    href: '#use-cases',    isRoute: false },
+  { label: 'Pricing',      href: '#pricing',      isRoute: false },
+  { label: 'Resources',    href: '#resources',    isRoute: false },
 ];
 
 const Navbar = () => {
@@ -24,18 +26,24 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={`container ${styles.inner}`}>
 
-        {/* Logo — image already includes the StudyPath AI text */}
-        <a href="/" className={styles.logo}>
+        {/* Logo */}
+        <Link to="/" className={styles.logo}>
           <img src={studypathLogo} alt="StudyPath AI" className={styles.logoImg} />
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <ul className={styles.navLinks}>
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
-              <a href={link.href} className={styles.navLink}>
-                {link.label}
-              </a>
+              {link.isRoute ? (
+                <Link to={link.href} className={styles.navLink}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a href={link.href} className={styles.navLink}>
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -62,14 +70,25 @@ const Navbar = () => {
       {menuOpen && (
         <div className={styles.mobileMenu}>
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={styles.mobileLink}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className={styles.mobileLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className={styles.mobileLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            )
           ))}
           <div className={styles.mobileActions}>
             <Button variant="outline" size="md">Log In</Button>
