@@ -1,26 +1,20 @@
 import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import LandingPage from './pages/Landing/LandingPage';
+import FeaturesPage from './pages/Features Page/FeaturesPage';
 
-/**
- * App — Root component
- *
- * Structure:
- *  <Navbar />        — sticky top nav, lives across all pages
- *  <LandingPage />   — the main landing page (phase 1)
- *  <Footer />        — site footer
- *
- * When you add more pages later (Dashboard, Course, Upload),
- * replace LandingPage here with a React Router <Routes> setup.
- */
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <LandingPage />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/features" element={<FeaturesPage />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 };
 

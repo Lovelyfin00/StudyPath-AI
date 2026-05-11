@@ -2,7 +2,7 @@ import styles from './CTA.module.css';
 
 /**
  * CTA — "Ready to transform the way you study?" section
- * Dark background banner with bullet points and a CTA button
+ * Purple banner (#5B21B6) with green checkmarks and white CTA button
  */
 
 const BENEFITS = [
@@ -17,7 +17,7 @@ const CTA = () => {
       <div className="container">
         <div className={styles.inner}>
 
-          {/* Left text */}
+          {/* Left: title + subtitle */}
           <div className={styles.content}>
             <h2 className={styles.title}>
               Ready to transform the way you study?
@@ -27,7 +27,7 @@ const CTA = () => {
             </p>
           </div>
 
-          {/* Middle benefits */}
+          {/* Middle: benefits with green checkmarks */}
           <ul className={styles.benefits}>
             {BENEFITS.map((b) => (
               <li key={b} className={styles.benefit}>
@@ -37,9 +37,11 @@ const CTA = () => {
             ))}
           </ul>
 
-          {/* Right CTA */}
+          {/* Right: CTA button */}
           <div className={styles.action}>
-            <button className={styles.ctaBtn}>Get Started Free →</button>
+            <button className={styles.ctaBtn}>
+              Get Started Free →
+            </button>
           </div>
 
         </div>

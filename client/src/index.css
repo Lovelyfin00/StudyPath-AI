@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* ============================================
    StudyPath AI — Global Styles
    Design tokens, resets, and base typography
