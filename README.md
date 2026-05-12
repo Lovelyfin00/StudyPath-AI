@@ -19,7 +19,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Firebase Authentication (Google + Email/Password)
 
-This repo now includes a separate product client app under `client/` plus a small server under `server/` that verifies Firebase ID tokens.
+This repo includes a single Vite client app at the repo root plus a small server under `server/` that verifies Firebase ID tokens.
 
 ### 1) Firebase Console setup
 
@@ -30,7 +30,7 @@ This repo now includes a separate product client app under `client/` plus a smal
 
 ### 2) Client env
 
-- Copy `client/.env.example` to `client/.env`
+- Copy `.env.example` to `.env`
 - Fill in the `VITE_FIREBASE_*` values from Firebase Console → Project settings → Your apps (Web)
 
 ### 3) Server env (token verification)
@@ -42,7 +42,13 @@ This repo now includes a separate product client app under `client/` plus a smal
 
 ### 4) Run locally
 
-- Client: `cd client` then `npm install` then `npm run dev` (defaults to http://localhost:5174)
+- Client: `npm install` then `npm run dev` (defaults to http://localhost:5173)
 - Server: `cd server` then `npm install` then `npm run dev` (defaults to http://localhost:4000)
 
-After signing in, open `/app` in the client and use the **Call server /auth/me** button to confirm end-to-end auth.
+Routes:
+- Landing: `/`
+- Pricing: `/pricing`
+- Auth: `/login`, `/register`
+- App (protected): `/app`
+
+After signing in, open `/app` and use the **Call server /auth/me** button to confirm end-to-end auth.

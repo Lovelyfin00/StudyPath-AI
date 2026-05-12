@@ -15,7 +15,6 @@ dist-ssr
 # Environment files (secrets)
 .env
 .env.*
-client/.env
 server/.env
 
 # Editor directories and files
@@ -28,3 +27,5 @@ server/.env
 *.njsproj
 *.sln
 *.sw?
+.env
+.env

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'How it Works', href: '#how-it-works' },
-  { label: 'Use Cases', href: '#' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Resources', href: '#resources' },
+  { label: 'Features', to: '/#features' },
+  { label: 'How it Works', to: '/#how-it-works' },
+  { label: 'Use Cases', to: '/#use-cases' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'Resources', to: '/#resources' },
 ]
 
 export default function Navbar() {
@@ -35,30 +36,30 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors duration-200 rounded-md hover:bg-purple-50"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#login"
+            <Link
+              to="/login"
               className="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors duration-200"
             >
               Log in
-            </a>
-            <a
-              href="#get-started"
+            </Link>
+            <Link
+              to="/register"
               className="inline-flex items-center px-4 py-2 rounded-lg bg-purple-600 text-white text-sm font-semibold hover:bg-purple-700 transition-colors duration-200 shadow-sm"
             >
               Get Started Free
-            </a>
+            </Link>
           </div>
 
           {/* Hamburger */}
@@ -77,25 +78,30 @@ export default function Navbar() {
         {menuOpen && (
           <div className="md:hidden border-t border-gray-100 py-4 space-y-1 fade-in">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-3 flex flex-col gap-2 px-3">
-              <a href="#login" className="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">
+              <Link
+                to="/login"
+                className="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
                 Log in
-              </a>
-              <a
-                href="#get-started"
+              </Link>
+              <Link
+                to="/register"
                 className="inline-flex justify-center items-center px-4 py-2 rounded-lg bg-purple-600 text-white text-sm font-semibold hover:bg-purple-700 transition-colors"
+                onClick={() => setMenuOpen(false)}
               >
                 Get Started Free
-              </a>
+              </Link>
             </div>
           </div>
         )}

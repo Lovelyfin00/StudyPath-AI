@@ -19,7 +19,7 @@ export default function CTASection() {
 
           {/* Button */}
           <a
-            href="#get-started"
+            href="/register"
             className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-purple-700 text-sm font-bold hover:bg-purple-50 transition-colors duration-200 shadow-md group"
           >
             Get Started Free

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const CheckIcon = () => (
   <svg
     className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5"
@@ -63,12 +65,12 @@ export default function PricingCard({ plan, delay }) {
       </ul>
 
       {/* CTA Button */}
-      <a
-        href="#"
+      <Link
+        to="/register"
         className="block text-center rounded-xl px-5 py-3 text-sm font-bold transition-all duration-200 border border-gray-300 text-gray-700 hover:bg-purple-600 hover:text-white hover:border-purple-600 hover:shadow-sm"
       >
         {cta}
-      </a>
+      </Link>
     </div>
   )
 }
