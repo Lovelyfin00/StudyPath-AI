@@ -6,17 +6,16 @@ import styles from './Navbar.module.css';
 
 /**
  * Navbar — Top navigation bar
- *
- * Uses React Router <Link> for page navigation (/features, etc.)
- * Uses plain <a href="#section"> for same-page anchor scrolling
+ * isRoute: true  → React Router <Link> (navigates to a new page)
+ * isRoute: false → plain <a> (scrolls within the same page)
  */
 
 const NAV_LINKS = [
   { label: 'Features',     href: '/features',    isRoute: true  },
   { label: 'How It Works', href: '#how-it-works', isRoute: false },
-  { label: 'Use Cases',    href: '#use-cases',    isRoute: false },
-  { label: 'Pricing',      href: '#pricing',      isRoute: false },
-  { label: 'Resources',    href: '#resources',    isRoute: false },
+  { label: 'Use Cases',    href: '/use-cases',   isRoute: true  },
+  { label: 'Pricing',      href: '/pricing',     isRoute: true  },
+  { label: 'Resources',    href: '#resources',   isRoute: false },
 ];
 
 const Navbar = () => {
