@@ -93,3 +93,47 @@
   .hamburger { display: flex; }
   .logoImg { height: 34px; }
 }
+
+/* Auth buttons in navbar */
+.loginBtn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s;
+}
+.loginBtn:hover { color: var(--color-primary); }
+
+.signupBtn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s;
+}
+.signupBtn:hover { background: var(--color-primary-dark); }
+
+.mobileLoginBtn {
+  display: block;
+  text-align: center;
+  padding: 0.7rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.mobileSignupBtn {
+  display: block;
+  text-align: center;
+  padding: 0.7rem;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}

@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../common/Button';
 import studypathLogo from '../../assets/studypathailogo.png';
 import styles from './Navbar.module.css';
 
 /**
  * Navbar — Top navigation bar
  * isRoute: true  → React Router <Link> (navigates to a new page)
- * isRoute: false → plain <a> (scrolls within the same page)
+ * isRoute: false → plain <a> (scrolls within same page)
  */
 
 const NAV_LINKS = [
@@ -35,13 +34,9 @@ const Navbar = () => {
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
               {link.isRoute ? (
-                <Link to={link.href} className={styles.navLink}>
-                  {link.label}
-                </Link>
+                <Link to={link.href} className={styles.navLink}>{link.label}</Link>
               ) : (
-                <a href={link.href} className={styles.navLink}>
-                  {link.label}
-                </a>
+                <a href={link.href} className={styles.navLink}>{link.label}</a>
               )}
             </li>
           ))}
@@ -49,8 +44,8 @@ const Navbar = () => {
 
         {/* Desktop Auth Buttons */}
         <div className={styles.navActions}>
-          <Button variant="ghost" size="sm">Log In</Button>
-          <Button variant="primary" size="sm">Get Started Free</Button>
+          <Link to="/signin" className={styles.loginBtn}>Log In</Link>
+          <Link to="/signup" className={styles.signupBtn}>Get Started Free</Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -70,28 +65,18 @@ const Navbar = () => {
         <div className={styles.mobileMenu}>
           {NAV_LINKS.map((link) => (
             link.isRoute ? (
-              <Link
-                key={link.label}
-                to={link.href}
-                className={styles.mobileLink}
-                onClick={() => setMenuOpen(false)}
-              >
+              <Link key={link.label} to={link.href} className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>
             ) : (
-              <a
-                key={link.label}
-                href={link.href}
-                className={styles.mobileLink}
-                onClick={() => setMenuOpen(false)}
-              >
+              <a key={link.label} href={link.href} className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </a>
             )
           ))}
           <div className={styles.mobileActions}>
-            <Button variant="outline" size="md">Log In</Button>
-            <Button variant="primary" size="md">Get Started Free</Button>
+            <Link to="/signin" className={styles.mobileLoginBtn} onClick={() => setMenuOpen(false)}>Log In</Link>
+            <Link to="/signup" className={styles.mobileSignupBtn} onClick={() => setMenuOpen(false)}>Get Started Free</Link>
           </div>
         </div>
       )}
