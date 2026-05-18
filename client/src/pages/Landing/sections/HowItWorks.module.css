@@ -1,0 +1,161 @@
+/* HowItWorks.module.css */
+
+.howItWorks { background: var(--color-bg-soft); }
+
+/* Header */
+.header { margin-bottom: var(--space-xl); }
+
+.sectionTag {
+  display: inline-block;
+  background: var(--color-primary-faint);
+  color: var(--color-primary);
+  border: 1px solid #DDD6FE;
+  padding: 0rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* Steps grid */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  align-items: stretch;
+  position: relative;
+}
+
+/* Each step wrapper holds the floating icon + card */
+.stepWrapper {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dashed connector between cards */
+.connector {
+  position: absolute;
+  top: 52px; /* vertically centered on the floating icon */
+  right: calc(-1 * var(--space-lg) / 2 - 8px);
+  width: calc(var(--space-lg) + 16px);
+  height: 2px;
+  border-top: 2px dashed #C4B5FD;
+  z-index: 1;
+}
+
+/* Floating icon sits above the card */
+.floatingIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -36px; /* overlaps the top of the card */
+  z-index: 2;
+  position: relative;
+}
+.stepIconImg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Card */
+.card {
+  flex: 1;
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: calc(var(--space-lg) + 20px) var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-faint);
+  border: 1px solid #DDD6FE;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+.stepDesc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* File type icons row */
+.fileTypes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: var(--space-xs);
+}
+.fileIcon {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+}
+
+/* --- Responsive --- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: var(--space-xl);
+  }
+  .connector { display: none; }
+  .stepWrapper {
+  height: 100%; width: 100%; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .floatingIcon { width: 60px; height: 60px; margin-bottom: -30px; }
+  .stepIconImg { width: 32px; height: 32px; }
+  .card {
+  flex: 1; padding: calc(var(--space-md) + 18px) var(--space-sm) var(--space-md); }
+  .fileIcon { width: 28px; height: 28px; }
+}
