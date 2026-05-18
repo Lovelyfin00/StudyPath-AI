@@ -1,0 +1,146 @@
+/* Features.module.css */
+
+.features { background: var(--color-bg-soft); }
+
+/* Header — left aligned like Figma */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.sectionTag {
+  display: inline-block;
+  background: #ab7cfc;
+  color: var(--color-primary);
+  border: none;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  width: fit-content;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+/* Two column body */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* Left: feature list */
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  transition: background 0.2s;
+  cursor: default;
+}
+.featureItem:hover { background: #ab7cfc; }
+
+/* Icon wrapper — purple rounded square */
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: #ab7cfc;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.featureIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(72%) saturate(4000%) hue-rotate(263deg) brightness(70%) contrast(95%);
+}
+
+/* Text */
+.featureText { display: flex; flex-direction: column; gap: 0.25rem; }
+.featureTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+.featureDesc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Explore button */
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: var(--space-sm);
+  width: fit-content;
+}
+.exploreBtn:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Right: preview image */
+.previewSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.previewImage {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  drop-shadow: var(--shadow-lg);
+}
+
+/* --- Responsive --- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .body { grid-template-columns: 1fr; }
+  .previewSide { order: -1; }
+  .previewImage { max-width: 500px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .featureItem { padding: var(--space-xs) var(--space-sm); gap: var(--space-sm); }
+  .iconWrapper { width: 44px; height: 44px; }
+  .featureIcon { width: 22px; height: 22px; }
+  .previewImage { max-width: 100%; }
+  .exploreBtn { width: 100%; justify-content: center; }
+}
