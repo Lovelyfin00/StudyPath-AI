@@ -2,20 +2,36 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import LandingPage from './pages/Landing/LandingPage';
-import FeaturesPage from './pages/Features Page/FeaturesPage';
-import UseCasesPage from './pages/UseCases/UseCasesPage';
-import PricingPage from './pages/Pricing/PricingPage';
-import AuthPage from './pages/Auth/AuthPage';
-import DashboardPage from './pages/Dashboard/DashboardPage';
+
+// Public pages
+import LandingPage    from './pages/Landing/LandingPage';
+import FeaturesPage   from './pages/Features Page/FeaturesPage';
+import UseCasesPage   from './pages/UseCases/UseCasesPage';
+import PricingPage    from './pages/Pricing/PricingPage';
+
+// Auth + Onboarding
+import AuthPage       from './pages/Auth/AuthPage';
+import OnboardingPage from './pages/Onboarding/OnboardingPage';
+
+// Dashboard pages
+import DashboardPage  from './pages/Dashboard/DashboardPage';
+import ModulesPage    from './pages/Dashboard/ModulesPage';
+import QuizzesPage    from './pages/Dashboard/QuizzesPage';
+import FlashcardsPage from './pages/Dashboard/FlashcardsPage';
+import NotesPage      from './pages/Dashboard/NotesPage';
+import ProgressPage   from './pages/Dashboard/ProgressPage';
+import CalendarPage   from './pages/Dashboard/CalendarPage';
+import BookmarksPage  from './pages/Dashboard/BookmarksPage';
+import ProfilePage    from './pages/Dashboard/ProfilePage';
+import SettingsPage   from './pages/Dashboard/SettingsPage';
 
 /**
- * App — Root component with React Router
+ * App — Root component
  *
- * Three layout types:
- *  1. MainLayout   — public pages (navbar + footer)
- *  2. AuthLayout   — auth pages (full screen, no navbar/footer)
- *  3. Dashboard    — dashboard pages (sidebar layout, no navbar/footer)
+ * User flow:
+ *  / → landing
+ *  /signup → auth page → /onboarding → /dashboard
+ *  /signin → auth page → /dashboard
  */
 
 const MainLayout = ({ children }) => (
@@ -30,18 +46,30 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth pages — full screen */}
-        <Route path="/signin" element={<AuthPage initialScreen="signin" />} />
-        <Route path="/signup" element={<AuthPage initialScreen="signup" />} />
+        {/* ── Public pages ── */}
+        <Route path="/"          element={<MainLayout><LandingPage /></MainLayout>}  />
+        <Route path="/features"  element={<MainLayout><FeaturesPage /></MainLayout>} />
+        <Route path="/use-cases" element={<MainLayout><UseCasesPage /></MainLayout>} />
+        <Route path="/pricing"   element={<MainLayout><PricingPage /></MainLayout>}  />
 
-        {/* Dashboard pages — sidebar layout */}
-        <Route path="/dashboard" element={<DashboardPage />} />
+        {/* ── Auth pages ── */}
+        <Route path="/signin"      element={<AuthPage initialScreen="signin" />} />
+        <Route path="/signup"      element={<AuthPage initialScreen="signup" />} />
 
-        {/* Public pages — navbar + footer */}
-        <Route path="/"          element={<MainLayout><LandingPage /></MainLayout>}   />
-        <Route path="/features"  element={<MainLayout><FeaturesPage /></MainLayout>}  />
-        <Route path="/use-cases" element={<MainLayout><UseCasesPage /></MainLayout>}  />
-        <Route path="/pricing"   element={<MainLayout><PricingPage /></MainLayout>}   />
+        {/* ── Onboarding (after signup) ── */}
+        <Route path="/onboarding"  element={<OnboardingPage />} />
+
+        {/* ── Dashboard pages ── */}
+        <Route path="/dashboard"            element={<DashboardPage />}  />
+        <Route path="/dashboard/modules"    element={<ModulesPage />}    />
+        <Route path="/dashboard/quizzes"    element={<QuizzesPage />}    />
+        <Route path="/dashboard/flashcards" element={<FlashcardsPage />} />
+        <Route path="/dashboard/notes"      element={<NotesPage />}      />
+        <Route path="/dashboard/progress"   element={<ProgressPage />}   />
+        <Route path="/dashboard/calendar"   element={<CalendarPage />}   />
+        <Route path="/dashboard/bookmarks"  element={<BookmarksPage />}  />
+        <Route path="/dashboard/profile"    element={<ProfilePage />}    />
+        <Route path="/dashboard/settings"   element={<SettingsPage />}   />
       </Routes>
     </BrowserRouter>
   );

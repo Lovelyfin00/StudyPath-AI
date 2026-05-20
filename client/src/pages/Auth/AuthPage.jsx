@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import studypathLogo from '../../assets/studypathailogo.png';
 
@@ -131,6 +132,7 @@ const PurplePanel = ({ slide, slideIndex, total, onPrev, onNext }) => (
    MAIN AUTH PAGE COMPONENT
 ══════════════════════════════════════════ */
 const AuthPage = ({ initialScreen = 'signin' }) => {
+  const navigate = useNavigate();
   const [screen, setScreen] = useState(initialScreen);
   const [slideIndex, setSlideIndex] = useState(0);
   const [showPass, setShowPass] = useState(false);
@@ -337,7 +339,10 @@ const AuthPage = ({ initialScreen = 'signin' }) => {
                   placeholder="••••••••••••••••"
                   rightEl={<span onClick={() => setShowConfirmPass(!showConfirmPass)}><EyeIcon /></span>}
                 />
-                <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3.5 rounded-xl transition-colors">
+                <button
+                  onClick={() => navigate('/onboarding')}
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3.5 rounded-xl transition-colors"
+                >
                   Continue
                 </button>
                 <p className="text-center text-sm text-gray-600">
