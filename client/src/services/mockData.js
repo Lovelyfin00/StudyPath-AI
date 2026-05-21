@@ -106,3 +106,34 @@ export const mockBookmarks = [
   { id: '4', title: 'Atomic Structure Notes',  subject: 'Physics',    module: 'Atoms',          type: 'note'      },
   { id: '5', title: 'Cell Membrane Function',  subject: 'Biology',    module: 'Cell Structure', type: 'flashcard' },
 ];
+
+export const mockModuleDetail = {
+  id: '1',
+  title: 'Biology: Cell Structure',
+  subject: 'Biology',
+  progress: 75,
+  totalLessons: 8,
+  completedLessons: 6,
+  lastUpdated: '2 hours ago',
+  description: 'A comprehensive study of cell structure and function, covering all major organelles, their roles, and how they work together to keep the cell alive.',
+  subtopics: [
+    { id: '1', title: 'Introduction to Cells',         completed: true,  duration: '15 min' },
+    { id: '2', title: 'Cell Membrane & Transport',     completed: true,  duration: '20 min' },
+    { id: '3', title: 'The Nucleus & DNA',             completed: true,  duration: '25 min' },
+    { id: '4', title: 'Mitochondria & Energy',         completed: true,  duration: '20 min' },
+    { id: '5', title: 'Ribosomes & Protein Synthesis', completed: true,  duration: '20 min' },
+    { id: '6', title: 'Golgi Apparatus & Vesicles',    completed: true,  duration: '15 min' },
+    { id: '7', title: 'Cell Division: Mitosis',        completed: false, duration: '30 min' },
+    { id: '8', title: 'Cell Division: Meiosis',        completed: false, duration: '30 min' },
+  ],
+  keyConcepts: [
+    'Cell membrane controls what enters and exits the cell',
+    'Mitochondria is the powerhouse of the cell — produces ATP',
+    'The nucleus contains DNA and controls cell activities',
+    'Ribosomes synthesise proteins from amino acids',
+    'The Golgi apparatus packages and ships proteins',
+  ],
+  quizCount: 3,
+  flashcardCount: 120,
+  noteCount: 2,
+};
